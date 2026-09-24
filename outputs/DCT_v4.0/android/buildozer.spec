@@ -12,7 +12,7 @@ android.minapi = 24
 android.ndk_api = 24
 android.archs = arm64-v8a
 android.accept_sdk_license = True
-requirements = hostpython3==3.12.14,python3==3.12.14,kivy==2.3.1,numpy,pandas,openpyxl,xlrd,androidstorage4kivy
+requirements = hostpython3==3.12.14,python3==3.12.14,kivy==2.3.1,numpy==2.3.0,pandas==2.3.0,openpyxl,xlrd,androidstorage4kivy
 p4a.branch = master
 android.debug_artifact = apk
 log_level = 2

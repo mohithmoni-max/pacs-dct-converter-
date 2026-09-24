@@ -37,6 +37,13 @@ jobs:
       - name: Install Buildozer
         run: python -m pip install --upgrade pip setuptools wheel "Cython<4" buildozer==1.6.0
 
+      - name: Prepare Android dependency source
+        run: |
+          P4A_DIR="android/.buildozer/android/platform/python-for-android"
+          mkdir -p "$(dirname "$P4A_DIR")"
+          git clone --depth 1 --branch master https://github.com/kivy/python-for-android.git "$P4A_DIR"
+          sed -i 's|https://tukaani.org/xz/xz-{version}.tar.gz|https://github.com/tukaani-project/xz/archive/refs/tags/v{version}.tar.gz|' "$P4A_DIR/pythonforandroid/recipes/liblzma/__init__.py"
+
       - name: Build debug APK
         working-directory: android
         run: buildozer android debug --verbose
