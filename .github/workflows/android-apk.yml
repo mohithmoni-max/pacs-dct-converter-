@@ -43,6 +43,7 @@ jobs:
           mkdir -p "$(dirname "$P4A_DIR")"
           git clone --depth 1 --branch master https://github.com/kivy/python-for-android.git "$P4A_DIR"
           sed -i 's|https://tukaani.org/xz/xz-{version}.tar.gz|https://github.com/tukaani-project/xz/archive/refs/tags/v{version}.tar.gz|' "$P4A_DIR/pythonforandroid/recipes/liblzma/__init__.py"
+          sed -i 's/"numpy>=2.0"/"numpy==2.2.0"/' "$P4A_DIR/pythonforandroid/recipes/pandas/__init__.py"
 
       - name: Build debug APK
         working-directory: android
